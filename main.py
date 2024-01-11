@@ -1,3 +1,4 @@
+import math
 import svgwrite
 import numpy as np
 
@@ -32,21 +33,23 @@ def next_step(points):
 
 
 def main():
+    MARGIN = 10
     WIDTH = 300 * 6
+    HEIGHT = int(WIDTH * math.sqrt(3) / 6) + MARGIN
 
-    N = 6
+    N = 5
 
     points = [np.array([0, 0]), np.array([WIDTH, 0])]
 
     for step in range(N):
         print(f"step: {step}")
 
-        points_list = [(int(p[0]), int(p[1])) for p in points]
+        points_list = [(int(p[0]), HEIGHT + int(p[1])) for p in points]
 
         filename = f"koch-{step}"
         svg_filename = f"{filename}.svg"
-
-        dwg = svgwrite.Drawing(svg_filename)
+        svg_path = f"svg/{svg_filename}"
+        dwg = svgwrite.Drawing(svg_path)
         dwg.add(dwg.polyline(points_list, stroke="black",
                 fill="none", stroke_width=1))
         dwg.save()
