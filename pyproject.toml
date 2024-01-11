@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "draw-koch-curve"
+version = "0.1.0"
+description = ""
+authors = ["chagama-g <55901504+chagama-g@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+svgwrite = "^1.4.3"
+reportlab = "^4.0.9"
+svglib = "^1.5.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
